@@ -127,7 +127,7 @@ Enable TTS Engine.
     "jsonrpc": "2.0",
     "id": 1234567890,
     "result": {
-        "TTS_Status": 1,
+        "TTS_Status": 0,
         "success": true
     }
 }
