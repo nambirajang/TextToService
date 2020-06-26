@@ -103,7 +103,7 @@ Enable TTS Engine.
 | Name | Type | Description |
 | :-------- | :-------- | :-------- |
 | result | object |  |
-| result.TTS_Status | string | TTS Return status (must be one of the following: *TTS_OK*, *TTS_FAIL*) |
+| result.TTS_Status | number | TTS Return status |
 
 ### Example
 
@@ -126,7 +126,7 @@ Enable TTS Engine.
     "jsonrpc": "2.0",
     "id": 1234567890,
     "result": {
-        "TTS_Status": "TTS_OK"
+        "TTS_Status": 1
     }
 }
 ```
