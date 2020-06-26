@@ -103,7 +103,7 @@ Enable TTS Engine.
 | Name | Type | Description |
 | :-------- | :-------- | :-------- |
 | result | object |  |
-| result?.TTS_Status | number | <sup>*(optional)*</sup> TTS Return status |
+| result?.TTS_Status | number | <sup>*(optional)*</sup> TTS Return status (must be one of the following: *on*, *activestandby*, *passivestandby*, *suspendtoram*, *hibernate*, *poweroff*) |
 | result?.success | boolean | <sup>*(optional)*</sup> Call status |
 
 ### Example
