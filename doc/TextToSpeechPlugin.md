@@ -85,6 +85,7 @@ TextToSpeech interface methods:
 | Method | Description |
 | :-------- | :-------- |
 | [enableTTS](#method.enableTTS) | Enable TTS Engine |
+| [listVoices](#method.listVoices) | To list the supported voice |
 
 <a name="method.enabletts"></a>
 ## *enabletts <sup>method</sup>*
@@ -127,6 +128,57 @@ Enable TTS Engine.
     "jsonrpc": "2.0",
     "id": 1234567890,
     "result": {
+        "TTS_Status": 0,
+        "success": true
+    }
+}
+```
+<a name="method.listvoices"></a>
+## *listvoices <sup>method</sup>*
+
+To list the supported voice.
+
+### Parameters
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| params | object |  |
+| params.language | string | Specify the language to get the corresponding voice |
+
+### Result
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| result | object |  |
+| result?.voices | array | <sup>*(optional)*</sup>  |
+| result?.voices[#] | string | <sup>*(optional)*</sup> Supported voice |
+| result?.TTS_Status | number | <sup>*(optional)*</sup> TTS Return status (must be one of the following: *TTS_OK*, *TTS_FAIL*, *TTS_NOT_ENABLED*, *TTS_CREATE_SESSION_DUPLICATE*, *TTS_EMPTY_APPID_INPUT*, *TTS_RESOURCE_BUSY*, *TTS_NO_SESSION_FOUND*, *TTS_NESTED_CLAIM_REQUEST*, *TTS_INVALID_CONFIGURATION*, *TTS_SESSION_NOT_ACTIVE*, *TTS_APP_NOT_FOUND*, *TTS_POLICY_VIOLATION*, *TTS_OBJECT_DESTROYED*, *TTS_SPEECH_NOT_FOUND*) |
+| result?.success | boolean | <sup>*(optional)*</sup> Call status |
+
+### Example
+
+#### Request
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1234567890,
+    "method": "TextToSpeech.1.listvoices",
+    "params": {
+        "language": "en-US"
+    }
+}
+```
+#### Response
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1234567890,
+    "result": {
+        "voices": [
+            "carol"
+        ],
         "TTS_Status": 0,
         "success": true
     }
