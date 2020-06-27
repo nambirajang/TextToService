@@ -195,20 +195,18 @@ To set the TTS Configuration.
 | Name | Type | Description |
 | :-------- | :-------- | :-------- |
 | params | object |  |
-| params?.ttsEndPoint | string | <sup>*(optional)*</sup> Specify the ttsEndPoint for TTSEngine |
-| params?.ttsEndPointSecured | string | <sup>*(optional)*</sup> Specify the ttsEndPointSecured for TTSEngine |
-| params?.language | string | <sup>*(optional)*</sup> Specify the language for TTSEngine |
-| params?.voice | string | <sup>*(optional)*</sup> Specify the voice for TTSEngine |
-| params?.volume | string | <sup>*(optional)*</sup> Specify the volume for TTSEngine |
-| params?.rate | number | <sup>*(optional)*</sup> Specify the rate for TTSEngine |
 
 ### Result
 
 | Name | Type | Description |
 | :-------- | :-------- | :-------- |
 | result | object |  |
-| result?.TTS_Status | number | <sup>*(optional)*</sup> TTS Return status (must be one of the following: *TTS_OK*, *TTS_FAIL*, *TTS_NOT_ENABLED*, *TTS_CREATE_SESSION_DUPLICATE*, *TTS_EMPTY_APPID_INPUT*, *TTS_RESOURCE_BUSY*, *TTS_NO_SESSION_FOUND*, *TTS_NESTED_CLAIM_REQUEST*, *TTS_INVALID_CONFIGURATION*, *TTS_SESSION_NOT_ACTIVE*, *TTS_APP_NOT_FOUND*, *TTS_POLICY_VIOLATION*, *TTS_OBJECT_DESTROYED*, *TTS_SPEECH_NOT_FOUND*) |
-| result?.success | boolean | <sup>*(optional)*</sup> Call status |
+| result?.ttsEndPoint | string | <sup>*(optional)*</sup> the ttsEndPoint of TTSEngine |
+| result?.ttsEndPointSecured | string | <sup>*(optional)*</sup> the ttsEndPointSecured of TTSEngine |
+| result?.language | string | <sup>*(optional)*</sup> the language of TTSEngine |
+| result?.voice | string | <sup>*(optional)*</sup> the voice of TTSEngine |
+| result?.volume | string | <sup>*(optional)*</sup> the volume of TTSEngine |
+| result?.rate | number | <sup>*(optional)*</sup> the rate of TTSEngine |
 
 ### Example
 
@@ -219,14 +217,7 @@ To set the TTS Configuration.
     "jsonrpc": "2.0",
     "id": 1234567890,
     "method": "TextToSpeech.1.setttsconfiguration",
-    "params": {
-        "ttsEndPoint": "http://ccr.voice-guidance-tts.xcr.comcast.net/tts/v1/cdn/location",
-        "ttsEndPointSecured": "https://ttspriv.g.comcast.net/tts?",
-        "language": "en-US",
-        "voice": "carol",
-        "volume": "100.00",
-        "rate": 5
-    }
+    "params": {}
 }
 ```
 #### Response
@@ -236,8 +227,12 @@ To set the TTS Configuration.
     "jsonrpc": "2.0",
     "id": 1234567890,
     "result": {
-        "TTS_Status": 0,
-        "success": true
+        "ttsEndPoint": "http://ccr.voice-guidance-tts.xcr.comcast.net/tts/v1/cdn/location",
+        "ttsEndPointSecured": "https://ttspriv.g.comcast.net/tts?",
+        "language": "en-US",
+        "voice": "carol",
+        "volume": "100.00",
+        "rate": 5
     }
 }
 ```
