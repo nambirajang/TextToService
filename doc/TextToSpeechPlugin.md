@@ -1091,28 +1091,28 @@ TextToSpeech interface events:
 
 | Event | Description |
 | :-------- | :-------- |
-| [onTTSStateChanged](#event.onTTSStateChanged) | Notifies about TTS state status (Enabled or Disabled) |
+| [onVoiceChanged](#event.onVoiceChanged) | Notifies voice changed |
 
-<a name="event.onttsstatechanged"></a>
-## *onttsstatechanged <sup>event</sup>*
+<a name="event.onvoicechanged"></a>
+## *onvoicechanged <sup>event</sup>*
 
-Notifies about TTS state status (Enabled or Disabled).
+Notifies voice changed.
 
 ### Parameters
 
 | Name | Type | Description |
 | :-------- | :-------- | :-------- |
 | params | object |  |
-| params.state | boolean | TTS Engine State |
+| params.voice | string | Voice details |
 
 ### Example
 
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "client.events.1.onttsstatechanged",
+    "method": "client.events.1.onvoicechanged",
     "params": {
-        "state": true
+        "voice": "carol"
     }
 }
 ```
