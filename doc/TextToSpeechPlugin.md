@@ -1091,8 +1091,58 @@ TextToSpeech interface events:
 
 | Event | Description |
 | :-------- | :-------- |
+| [onTTSStateChanged](#event.onTTSStateChanged) | Notifies about TTS state status (Enabled or Disabled) |
+| [onTTSSessionCreated](#event.onTTSSessionCreated) | Notifies about TTS session is created or not |
 | [onVoiceChanged](#event.onVoiceChanged) | Notifies voice changed |
 
+<a name="event.onttsstatechanged"></a>
+## *onttsstatechanged <sup>event</sup>*
+
+Notifies about TTS state status (Enabled or Disabled).
+
+### Parameters
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| params | object |  |
+| params.state | boolean | TTS Engine State |
+
+### Example
+
+```json
+{
+    "jsonrpc": "2.0",
+    "method": "client.events.1.onttsstatechanged",
+    "params": {
+        "state": true
+    }
+}
+```
+<a name="event.onttssessioncreated"></a>
+## *onttssessioncreated <sup>event</sup>*
+
+Notifies about TTS session is created or not.
+
+### Parameters
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| params | object |  |
+| params.appId | number | AppId |
+| params.sessionId | number | Session Id |
+
+### Example
+
+```json
+{
+    "jsonrpc": "2.0",
+    "method": "client.events.1.onttssessioncreated",
+    "params": {
+        "appId": 1,
+        "sessionId": 1
+    }
+}
+```
 <a name="event.onvoicechanged"></a>
 ## *onvoicechanged <sup>event</sup>*
 
