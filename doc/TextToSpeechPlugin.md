@@ -94,6 +94,11 @@ TextToSpeech interface methods:
 | [claimResource](#method.claimResource) | Claim TTS Resource for app |
 | [releaseResource](#method.releaseResource) | Release TTS Resource |
 | [createSession](#method.createSession) | Create TTS Session |
+| [destroySession](#method.destroySession) | Destroy TTS Session |
+| [isActiveSession](#method.isActiveSession) | Check whether TTSSession is active or not |
+| [setPreemptiveSpeak](#method.setPreemptiveSpeak) | SetPreemptiveSpeak or queeing speech |
+| [requestExtendedEvents](#method.requestExtendedEvents) | Set requestExtendedEvents |
+| [speak](#method.speak) | Start Speech |
 
 <a name="method.enabletts"></a>
 ## *enabletts <sup>method</sup>*
@@ -578,6 +583,250 @@ Create TTS Session.
     "id": 1234567890,
     "result": {
         "TTSSessionId": 1,
+        "TTS_Status": 0,
+        "success": true
+    }
+}
+```
+<a name="method.destroysession"></a>
+## *destroysession <sup>method</sup>*
+
+Destroy TTS Session.
+
+### Parameters
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| params | object |  |
+| params.sessionId | number | Todo NAMBI |
+
+### Result
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| result | object |  |
+| result?.TTS_Status | number | <sup>*(optional)*</sup> TTS Return status (must be one of the following: *TTS_OK*, *TTS_FAIL*, *TTS_NOT_ENABLED*, *TTS_CREATE_SESSION_DUPLICATE*, *TTS_EMPTY_APPID_INPUT*, *TTS_RESOURCE_BUSY*, *TTS_NO_SESSION_FOUND*, *TTS_NESTED_CLAIM_REQUEST*, *TTS_INVALID_CONFIGURATION*, *TTS_SESSION_NOT_ACTIVE*, *TTS_APP_NOT_FOUND*, *TTS_POLICY_VIOLATION*, *TTS_OBJECT_DESTROYED*, *TTS_SPEECH_NOT_FOUND*) |
+| result?.success | boolean | <sup>*(optional)*</sup> Call status |
+
+### Example
+
+#### Request
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1234567890,
+    "method": "TextToSpeech.1.destroysession",
+    "params": {
+        "sessionId": 1
+    }
+}
+```
+#### Response
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1234567890,
+    "result": {
+        "TTS_Status": 0,
+        "success": true
+    }
+}
+```
+<a name="method.isactivesession"></a>
+## *isactivesession <sup>method</sup>*
+
+Check whether TTSSession is active or not.
+
+### Parameters
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| params | object |  |
+| params?.forcefetch | boolean | <sup>*(optional)*</sup> Indicates TTSSession is active or not |
+| params?.sessionId | number | <sup>*(optional)*</sup> Todo NAMBI |
+
+### Result
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| result | object |  |
+| result?.isActive | boolean | <sup>*(optional)*</sup> Indicates TTSSession is active or not |
+| result?.TTS_Status | number | <sup>*(optional)*</sup> TTS Return status (must be one of the following: *TTS_OK*, *TTS_FAIL*, *TTS_NOT_ENABLED*, *TTS_CREATE_SESSION_DUPLICATE*, *TTS_EMPTY_APPID_INPUT*, *TTS_RESOURCE_BUSY*, *TTS_NO_SESSION_FOUND*, *TTS_NESTED_CLAIM_REQUEST*, *TTS_INVALID_CONFIGURATION*, *TTS_SESSION_NOT_ACTIVE*, *TTS_APP_NOT_FOUND*, *TTS_POLICY_VIOLATION*, *TTS_OBJECT_DESTROYED*, *TTS_SPEECH_NOT_FOUND*) |
+| result?.success | boolean | <sup>*(optional)*</sup> Call status |
+
+### Example
+
+#### Request
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1234567890,
+    "method": "TextToSpeech.1.isactivesession",
+    "params": {
+        "forcefetch": true,
+        "sessionId": 1
+    }
+}
+```
+#### Response
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1234567890,
+    "result": {
+        "isActive": true,
+        "TTS_Status": 0,
+        "success": true
+    }
+}
+```
+<a name="method.setpreemptivespeak"></a>
+## *setpreemptivespeak <sup>method</sup>*
+
+SetPreemptiveSpeak or queeing speech.
+
+### Parameters
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| params | object |  |
+| params?.preemptive | boolean | <sup>*(optional)*</sup> Indicates preemptive mode |
+| params?.sessionId | number | <sup>*(optional)*</sup> Todo NAMBI |
+
+### Result
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| result | object |  |
+| result?.TTS_Status | number | <sup>*(optional)*</sup> TTS Return status (must be one of the following: *TTS_OK*, *TTS_FAIL*, *TTS_NOT_ENABLED*, *TTS_CREATE_SESSION_DUPLICATE*, *TTS_EMPTY_APPID_INPUT*, *TTS_RESOURCE_BUSY*, *TTS_NO_SESSION_FOUND*, *TTS_NESTED_CLAIM_REQUEST*, *TTS_INVALID_CONFIGURATION*, *TTS_SESSION_NOT_ACTIVE*, *TTS_APP_NOT_FOUND*, *TTS_POLICY_VIOLATION*, *TTS_OBJECT_DESTROYED*, *TTS_SPEECH_NOT_FOUND*) |
+| result?.success | boolean | <sup>*(optional)*</sup> Call status |
+
+### Example
+
+#### Request
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1234567890,
+    "method": "TextToSpeech.1.setpreemptivespeak",
+    "params": {
+        "preemptive": true,
+        "sessionId": 1
+    }
+}
+```
+#### Response
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1234567890,
+    "result": {
+        "TTS_Status": 0,
+        "success": true
+    }
+}
+```
+<a name="method.requestextendedevents"></a>
+## *requestextendedevents <sup>method</sup>*
+
+Set requestExtendedEvents.
+
+### Parameters
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| params | object |  |
+| params?.extendedEvents | number | <sup>*(optional)*</sup> Extended Events |
+| params?.sessionId | number | <sup>*(optional)*</sup> Todo NAMBI |
+
+### Result
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| result | object |  |
+| result?.TTS_Status | number | <sup>*(optional)*</sup> TTS Return status (must be one of the following: *TTS_OK*, *TTS_FAIL*, *TTS_NOT_ENABLED*, *TTS_CREATE_SESSION_DUPLICATE*, *TTS_EMPTY_APPID_INPUT*, *TTS_RESOURCE_BUSY*, *TTS_NO_SESSION_FOUND*, *TTS_NESTED_CLAIM_REQUEST*, *TTS_INVALID_CONFIGURATION*, *TTS_SESSION_NOT_ACTIVE*, *TTS_APP_NOT_FOUND*, *TTS_POLICY_VIOLATION*, *TTS_OBJECT_DESTROYED*, *TTS_SPEECH_NOT_FOUND*) |
+| result?.success | boolean | <sup>*(optional)*</sup> Call status |
+
+### Example
+
+#### Request
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1234567890,
+    "method": "TextToSpeech.1.requestextendedevents",
+    "params": {
+        "extendedEvents": 1,
+        "sessionId": 1
+    }
+}
+```
+#### Response
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1234567890,
+    "result": {
+        "TTS_Status": 0,
+        "success": true
+    }
+}
+```
+<a name="method.speak"></a>
+## *speak <sup>method</sup>*
+
+Start Speech.
+
+### Parameters
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| params | object |  |
+| params?.sessionId | number | <sup>*(optional)*</sup> Session Id |
+| params?.id | number | <sup>*(optional)*</sup> SpeechId |
+| params?.secure | boolean | <sup>*(optional)*</sup> Indicate secure/plain mode |
+| params?.text | string | <sup>*(optional)*</sup> Text input |
+
+### Result
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| result | object |  |
+| result?.TTS_Status | number | <sup>*(optional)*</sup> TTS Return status (must be one of the following: *TTS_OK*, *TTS_FAIL*, *TTS_NOT_ENABLED*, *TTS_CREATE_SESSION_DUPLICATE*, *TTS_EMPTY_APPID_INPUT*, *TTS_RESOURCE_BUSY*, *TTS_NO_SESSION_FOUND*, *TTS_NESTED_CLAIM_REQUEST*, *TTS_INVALID_CONFIGURATION*, *TTS_SESSION_NOT_ACTIVE*, *TTS_APP_NOT_FOUND*, *TTS_POLICY_VIOLATION*, *TTS_OBJECT_DESTROYED*, *TTS_SPEECH_NOT_FOUND*) |
+| result?.success | boolean | <sup>*(optional)*</sup> Call status |
+
+### Example
+
+#### Request
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1234567890,
+    "method": "TextToSpeech.1.speak",
+    "params": {
+        "sessionId": 1,
+        "id": 1,
+        "secure": true,
+        "text": "speech_1"
+    }
+}
+```
+#### Response
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1234567890,
+    "result": {
         "TTS_Status": 0,
         "success": true
     }
