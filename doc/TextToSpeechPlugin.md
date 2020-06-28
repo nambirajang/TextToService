@@ -747,7 +747,7 @@ Set requestExtendedEvents.
 | Name | Type | Description |
 | :-------- | :-------- | :-------- |
 | params | object |  |
-| params?.extendedEvents | number | <sup>*(optional)*</sup> Extended Events |
+| params?.extendedEvents | number | <sup>*(optional)*</sup> Extended Events (must be one of the following: *EXT_EVENT_WILL_SPEAK*, *EXT_EVENT_PAUSED*, *EXT_EVENT_RESUMED*, *EXT_EVENT_CANCELLED*, *EXT_EVENT_INTERRUPTED*, *EXT_EVENT_NETWORK_ERROR*, *EXT_EVENT_PLAYBACK_ERROR*, *EXT_EVENT_ALL*) |
 | params?.sessionId | number | <sup>*(optional)*</sup> Todo NAMBI |
 
 ### Result
