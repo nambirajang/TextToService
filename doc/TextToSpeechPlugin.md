@@ -14,6 +14,7 @@ TextToSpeech plugin for Thunder framework.
 - [Description](#head.Description)
 - [Configuration](#head.Configuration)
 - [Methods](#head.Methods)
+- [Notifications](#head.Notifications)
 
 <a name="head.Introduction"></a>
 # Introduction
@@ -21,7 +22,7 @@ TextToSpeech plugin for Thunder framework.
 <a name="head.Scope"></a>
 ## Scope
 
-This document describes purpose and functionality of the TextToSpeech plugin. It includes detailed specification of its configuration and methods provided.
+This document describes purpose and functionality of the TextToSpeech plugin. It includes detailed specification of its configuration, methods provided and notifications sent.
 
 <a name="head.Case_Sensitivity"></a>
 ## Case Sensitivity
@@ -1076,6 +1077,42 @@ Get the speech state.
         "speechState": 0,
         "TTS_Status": 0,
         "success": true
+    }
+}
+```
+<a name="head.Notifications"></a>
+# Notifications
+
+Notifications are autonomous events, triggered by the internals of the implementation, and broadcasted via JSON-RPC to all registered observers.Refer to [[Thunder](#ref.Thunder)] for information on how to register for a notification.
+
+The following events are provided by the TextToSpeech plugin:
+
+TextToSpeech interface events:
+
+| Event | Description |
+| :-------- | :-------- |
+| [onTTSStateChanged](#event.onTTSStateChanged) | Notifies about TTS state status (Enabled or Disabled) |
+
+<a name="event.onttsstatechanged"></a>
+## *onttsstatechanged <sup>event</sup>*
+
+Notifies about TTS state status (Enabled or Disabled).
+
+### Parameters
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| params | object |  |
+| params.state | boolean | TTS Engine State |
+
+### Example
+
+```json
+{
+    "jsonrpc": "2.0",
+    "method": "client.events.1.onttsstatechanged",
+    "params": {
+        "state": true
     }
 }
 ```
