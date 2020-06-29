@@ -1094,6 +1094,17 @@ TextToSpeech interface events:
 | [onTTSStateChanged](#event.onTTSStateChanged) | Notifies about TTS state status (Enabled or Disabled) |
 | [onTTSSessionCreated](#event.onTTSSessionCreated) | Notifies about TTS session is created or not |
 | [onVoiceChanged](#event.onVoiceChanged) | Notifies voice changed |
+| [onResourceAcquired](#event.onResourceAcquired) | Notifies when TTS Resource is acquired |
+| [onResourceReleased](#event.onResourceReleased) | Notifies when TTS Resource is released |
+| [onWillSpeak](#event.onWillSpeak) | Notifies when TTS Resource is acquired |
+| [onSpeechStart](#event.onSpeechStart) | Notifies when speech is starts |
+| [onSpeechPause](#event.onSpeechPause) | Notifies when speech pause occurred |
+| [onSpeechResume](#event.onSpeechResume) | Notifies when speech Resume occurred |
+| [onSpeechInterrupt](#event.onSpeechInterrupt) | Notifies when speech is interrupted |
+| [onSpeechCancel](#event.onSpeechCancel) | Notifies when speech is cancelled |
+| [onNetworkError](#event.onNetworkError) | Notifies when network error is occurred |
+| [onPlaybackError](#event.onPlaybackError) | Notifies when playback error |
+| [onSpeechComplete](#event.onSpeechComplete) | Notifies when speech is completed |
 
 <a name="event.onttsstatechanged"></a>
 ## *onttsstatechanged <sup>event</sup>*
@@ -1163,6 +1174,305 @@ Notifies voice changed.
     "method": "client.events.1.onvoicechanged",
     "params": {
         "voice": "carol"
+    }
+}
+```
+<a name="event.onresourceacquired"></a>
+## *onresourceacquired <sup>event</sup>*
+
+Notifies when TTS Resource is acquired.
+
+### Parameters
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| params | object |  |
+| params.appId | number | AppId |
+| params.sessionId | number | Session Id |
+
+### Example
+
+```json
+{
+    "jsonrpc": "2.0",
+    "method": "client.events.1.onresourceacquired",
+    "params": {
+        "appId": 1,
+        "sessionId": 1
+    }
+}
+```
+<a name="event.onresourcereleased"></a>
+## *onresourcereleased <sup>event</sup>*
+
+Notifies when TTS Resource is released.
+
+### Parameters
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| params | object |  |
+| params.appId | number | AppId |
+| params.sessionId | number | Session Id |
+
+### Example
+
+```json
+{
+    "jsonrpc": "2.0",
+    "method": "client.events.1.onresourcereleased",
+    "params": {
+        "appId": 1,
+        "sessionId": 1
+    }
+}
+```
+<a name="event.onwillspeak"></a>
+## *onwillspeak <sup>event</sup>*
+
+Notifies when TTS Resource is acquired.
+
+### Parameters
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| params | object |  |
+| params.appId | number | AppId |
+| params.sessionId | number | Session Id |
+| params.speechId | number | speechId |
+| params.text | string | Text |
+
+### Example
+
+```json
+{
+    "jsonrpc": "2.0",
+    "method": "client.events.1.onwillspeak",
+    "params": {
+        "appId": 1,
+        "sessionId": 1,
+        "speechId": 1,
+        "text": "speech_1"
+    }
+}
+```
+<a name="event.onspeechstart"></a>
+## *onspeechstart <sup>event</sup>*
+
+Notifies when speech is starts.
+
+### Parameters
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| params | object |  |
+| params.appId | number | AppId |
+| params.sessionId | number | Session Id |
+| params.speechId | number | speechId |
+| params.text | string | Text |
+
+### Example
+
+```json
+{
+    "jsonrpc": "2.0",
+    "method": "client.events.1.onspeechstart",
+    "params": {
+        "appId": 1,
+        "sessionId": 1,
+        "speechId": 1,
+        "text": "speech_1"
+    }
+}
+```
+<a name="event.onspeechpause"></a>
+## *onspeechpause <sup>event</sup>*
+
+Notifies when speech pause occurred.
+
+### Parameters
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| params | object |  |
+| params.appId | number | AppId |
+| params.sessionId | number | Session Id |
+| params.speechId | number | Speech Id |
+
+### Example
+
+```json
+{
+    "jsonrpc": "2.0",
+    "method": "client.events.1.onspeechpause",
+    "params": {
+        "appId": 1,
+        "sessionId": 1,
+        "speechId": 1
+    }
+}
+```
+<a name="event.onspeechresume"></a>
+## *onspeechresume <sup>event</sup>*
+
+Notifies when speech Resume occurred.
+
+### Parameters
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| params | object |  |
+| params.appId | number | AppId |
+| params.sessionId | number | Session Id |
+| params.speechId | number | Speech Id |
+
+### Example
+
+```json
+{
+    "jsonrpc": "2.0",
+    "method": "client.events.1.onspeechresume",
+    "params": {
+        "appId": 1,
+        "sessionId": 1,
+        "speechId": 1
+    }
+}
+```
+<a name="event.onspeechinterrupt"></a>
+## *onspeechinterrupt <sup>event</sup>*
+
+Notifies when speech is interrupted.
+
+### Parameters
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| params | object |  |
+| params.appId | number | AppId |
+| params.sessionId | number | Session Id |
+| params.speechId | number | Speech Id |
+
+### Example
+
+```json
+{
+    "jsonrpc": "2.0",
+    "method": "client.events.1.onspeechinterrupt",
+    "params": {
+        "appId": 1,
+        "sessionId": 1,
+        "speechId": 1
+    }
+}
+```
+<a name="event.onspeechcancel"></a>
+## *onspeechcancel <sup>event</sup>*
+
+Notifies when speech is cancelled.
+
+### Parameters
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| params | object |  |
+| params.appId | number | AppId |
+| params.sessionId | number | Session Id |
+| params.speechId | number | Speech Id |
+
+### Example
+
+```json
+{
+    "jsonrpc": "2.0",
+    "method": "client.events.1.onspeechcancel",
+    "params": {
+        "appId": 1,
+        "sessionId": 1,
+        "speechId": 1
+    }
+}
+```
+<a name="event.onnetworkerror"></a>
+## *onnetworkerror <sup>event</sup>*
+
+Notifies when network error is occurred.
+
+### Parameters
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| params | object |  |
+| params.appId | number | AppId |
+| params.sessionId | number | Session Id |
+| params.speechId | number | Speech Id |
+
+### Example
+
+```json
+{
+    "jsonrpc": "2.0",
+    "method": "client.events.1.onnetworkerror",
+    "params": {
+        "appId": 1,
+        "sessionId": 1,
+        "speechId": 1
+    }
+}
+```
+<a name="event.onplaybackerror"></a>
+## *onplaybackerror <sup>event</sup>*
+
+Notifies when playback error.
+
+### Parameters
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| params | object |  |
+| params.appId | number | AppId |
+| params.sessionId | number | Session Id |
+| params.speechId | number | Speech Id |
+
+### Example
+
+```json
+{
+    "jsonrpc": "2.0",
+    "method": "client.events.1.onplaybackerror",
+    "params": {
+        "appId": 1,
+        "sessionId": 1,
+        "speechId": 1
+    }
+}
+```
+<a name="event.onspeechcomplete"></a>
+## *onspeechcomplete <sup>event</sup>*
+
+Notifies when speech is completed.
+
+### Parameters
+
+| Name | Type | Description |
+| :-------- | :-------- | :-------- |
+| params | object |  |
+| params.appId | number | AppId |
+| params.sessionId | number | Session Id |
+| params.speechId | number | Speech Id |
+| params.text | string | Text |
+
+### Example
+
+```json
+{
+    "jsonrpc": "2.0",
+    "method": "client.events.1.onspeechcomplete",
+    "params": {
+        "appId": 1,
+        "sessionId": 1,
+        "speechId": 1,
+        "text": "speech_1"
     }
 }
 ```
