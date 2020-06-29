@@ -106,8 +106,8 @@ TextToSpeech interface methods:
 | [isSpeaking](#method.isSpeaking) | Check the session is speaking or not |
 | [getSpeechState](#method.getSpeechState) | Get the speech state |
 
-<a name="method.enabletts"></a>
-## *enabletts <sup>method</sup>*
+<a name="method.enableTTS"></a>
+## *enableTTS <sup>method</sup>*
 
 Enable TTS Engine.
 
@@ -134,7 +134,7 @@ Enable TTS Engine.
 {
     "jsonrpc": "2.0",
     "id": 1234567890,
-    "method": "TextToSpeech.1.enabletts",
+    "method": "TextToSpeech.1.enableTTS",
     "params": {
         "enableTTS": true
     }
