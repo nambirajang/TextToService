@@ -152,8 +152,8 @@ Enable TTS Engine.
     }
 }
 ```
-<a name="method.listvoices"></a>
-## *listvoices <sup>method</sup>*
+<a name="method.listVoices"></a>
+## *listVoices <sup>method</sup>*
 
 To list the supported voice.
 
@@ -182,7 +182,7 @@ To list the supported voice.
 {
     "jsonrpc": "2.0",
     "id": 1234567890,
-    "method": "TextToSpeech.1.listvoices",
+    "method": "TextToSpeech.1.listVoices",
     "params": {
         "language": "en-US"
     }
@@ -203,8 +203,8 @@ To list the supported voice.
     }
 }
 ```
-<a name="method.setttsconfiguration"></a>
-## *setttsconfiguration <sup>method</sup>*
+<a name="method.setTTSConfiguration"></a>
+## *setTTSConfiguration <sup>method</sup>*
 
 To set the TTS Configuration.
 
@@ -236,7 +236,7 @@ To set the TTS Configuration.
 {
     "jsonrpc": "2.0",
     "id": 1234567890,
-    "method": "TextToSpeech.1.setttsconfiguration",
+    "method": "TextToSpeech.1.setTTSConfiguration",
     "params": {
         "ttsEndPoint": "http://ccr.voice-guidance-tts.xcr.comcast.net/tts/v1/cdn/location",
         "ttsEndPointSecured": "https://ttspriv.g.comcast.net/tts?",
@@ -259,8 +259,8 @@ To set the TTS Configuration.
     }
 }
 ```
-<a name="method.getttsconfiguration"></a>
-## *getttsconfiguration <sup>method</sup>*
+<a name="method.getTTSConfiguration"></a>
+## *getTTSConfiguration <sup>method</sup>*
 
 To get the TTS Configuration.
 
@@ -290,7 +290,7 @@ To get the TTS Configuration.
 {
     "jsonrpc": "2.0",
     "id": 1234567890,
-    "method": "TextToSpeech.1.getttsconfiguration",
+    "method": "TextToSpeech.1.getTTSConfiguration",
     "params": {}
 }
 ```
@@ -310,8 +310,8 @@ To get the TTS Configuration.
     }
 }
 ```
-<a name="method.isttsenabled"></a>
-## *isttsenabled <sup>method</sup>*
+<a name="method.isTTSEnabled"></a>
+## *isTTSEnabled <sup>method</sup>*
 
 Check whether TTS is enabled or not.
 
@@ -339,7 +339,7 @@ Check whether TTS is enabled or not.
 {
     "jsonrpc": "2.0",
     "id": 1234567890,
-    "method": "TextToSpeech.1.isttsenabled",
+    "method": "TextToSpeech.1.isTTSEnabled",
     "params": {
         "force": true
     }
@@ -358,8 +358,8 @@ Check whether TTS is enabled or not.
     }
 }
 ```
-<a name="method.issessionactiveforapp"></a>
-## *issessionactiveforapp <sup>method</sup>*
+<a name="method.isSessionActiveForApp"></a>
+## *isSessionActiveForApp <sup>method</sup>*
 
 Check whether TTSSession is active for app or not.
 
@@ -387,7 +387,7 @@ Check whether TTSSession is active for app or not.
 {
     "jsonrpc": "2.0",
     "id": 1234567890,
-    "method": "TextToSpeech.1.issessionactiveforapp",
+    "method": "TextToSpeech.1.isSessionActiveForApp",
     "params": {
         "appId": 1
     }
@@ -406,8 +406,8 @@ Check whether TTSSession is active for app or not.
     }
 }
 ```
-<a name="method.acquireresource"></a>
-## *acquireresource <sup>method</sup>*
+<a name="method.acquireResource"></a>
+## *acquireResource <sup>method</sup>*
 
 Acquire TTS Resource for app.
 
@@ -434,7 +434,7 @@ Acquire TTS Resource for app.
 {
     "jsonrpc": "2.0",
     "id": 1234567890,
-    "method": "TextToSpeech.1.acquireresource",
+    "method": "TextToSpeech.1.acquireResource",
     "params": {
         "appId": 1
     }
@@ -452,8 +452,8 @@ Acquire TTS Resource for app.
     }
 }
 ```
-<a name="method.claimresource"></a>
-## *claimresource <sup>method</sup>*
+<a name="method.claimResource"></a>
+## *claimResource <sup>method</sup>*
 
 Claim TTS Resource for app.
 
@@ -480,7 +480,7 @@ Claim TTS Resource for app.
 {
     "jsonrpc": "2.0",
     "id": 1234567890,
-    "method": "TextToSpeech.1.claimresource",
+    "method": "TextToSpeech.1.claimResource",
     "params": {
         "appId": 1
     }
@@ -498,8 +498,8 @@ Claim TTS Resource for app.
     }
 }
 ```
-<a name="method.releaseresource"></a>
-## *releaseresource <sup>method</sup>*
+<a name="method.releaseResource"></a>
+## *releaseResource <sup>method</sup>*
 
 Release TTS Resource.
 
@@ -526,7 +526,7 @@ Release TTS Resource.
 {
     "jsonrpc": "2.0",
     "id": 1234567890,
-    "method": "TextToSpeech.1.releaseresource",
+    "method": "TextToSpeech.1.releaseResource",
     "params": {
         "appId": 1
     }
@@ -544,8 +544,8 @@ Release TTS Resource.
     }
 }
 ```
-<a name="method.createsession"></a>
-## *createsession <sup>method</sup>*
+<a name="method.createSession"></a>
+## *createSession <sup>method</sup>*
 
 Create TTS Session.
 
@@ -574,7 +574,7 @@ Create TTS Session.
 {
     "jsonrpc": "2.0",
     "id": 1234567890,
-    "method": "TextToSpeech.1.createsession",
+    "method": "TextToSpeech.1.createSession",
     "params": {
         "appName": "A",
         "appId": 1
@@ -594,8 +594,8 @@ Create TTS Session.
     }
 }
 ```
-<a name="method.destroysession"></a>
-## *destroysession <sup>method</sup>*
+<a name="method.destroySession"></a>
+## *destroySession <sup>method</sup>*
 
 Destroy TTS Session.
 
@@ -622,7 +622,7 @@ Destroy TTS Session.
 {
     "jsonrpc": "2.0",
     "id": 1234567890,
-    "method": "TextToSpeech.1.destroysession",
+    "method": "TextToSpeech.1.destroySession",
     "params": {
         "sessionId": 1
     }
@@ -640,8 +640,8 @@ Destroy TTS Session.
     }
 }
 ```
-<a name="method.isactivesession"></a>
-## *isactivesession <sup>method</sup>*
+<a name="method.isActiveSession"></a>
+## *isActiveSession <sup>method</sup>*
 
 Check whether TTSSession is active or not.
 
@@ -670,7 +670,7 @@ Check whether TTSSession is active or not.
 {
     "jsonrpc": "2.0",
     "id": 1234567890,
-    "method": "TextToSpeech.1.isactivesession",
+    "method": "TextToSpeech.1.isActiveSession",
     "params": {
         "forcefetch": true,
         "sessionId": 1
@@ -690,8 +690,8 @@ Check whether TTSSession is active or not.
     }
 }
 ```
-<a name="method.setpreemptivespeak"></a>
-## *setpreemptivespeak <sup>method</sup>*
+<a name="method.setPreemptiveSpeak"></a>
+## *setPreemptiveSpeak <sup>method</sup>*
 
 SetPreemptiveSpeak or queeing speech.
 
@@ -719,7 +719,7 @@ SetPreemptiveSpeak or queeing speech.
 {
     "jsonrpc": "2.0",
     "id": 1234567890,
-    "method": "TextToSpeech.1.setpreemptivespeak",
+    "method": "TextToSpeech.1.setPreemptiveSpeak",
     "params": {
         "preemptive": true,
         "sessionId": 1
@@ -738,8 +738,8 @@ SetPreemptiveSpeak or queeing speech.
     }
 }
 ```
-<a name="method.requestextendedevents"></a>
-## *requestextendedevents <sup>method</sup>*
+<a name="method.requestExtendedEvents"></a>
+## *requestExtendedEvents <sup>method</sup>*
 
 Set requestExtendedEvents.
 
@@ -767,7 +767,7 @@ Set requestExtendedEvents.
 {
     "jsonrpc": "2.0",
     "id": 1234567890,
-    "method": "TextToSpeech.1.requestextendedevents",
+    "method": "TextToSpeech.1.requestExtendedEvents",
     "params": {
         "extendedEvents": 1,
         "sessionId": 1
@@ -982,8 +982,8 @@ Resume the speech.
     }
 }
 ```
-<a name="method.isspeaking"></a>
-## *isspeaking <sup>method</sup>*
+<a name="method.isSpeaking"></a>
+## *isSpeaking <sup>method</sup>*
 
 Check the session is speaking or not.
 
@@ -1011,7 +1011,7 @@ Check the session is speaking or not.
 {
     "jsonrpc": "2.0",
     "id": 1234567890,
-    "method": "TextToSpeech.1.isspeaking",
+    "method": "TextToSpeech.1.isSpeaking",
     "params": {
         "sessionId": 1
     }
@@ -1030,8 +1030,8 @@ Check the session is speaking or not.
     }
 }
 ```
-<a name="method.getspeechstate"></a>
-## *getspeechstate <sup>method</sup>*
+<a name="method.getSpeechState"></a>
+## *getSpeechState <sup>method</sup>*
 
 Get the speech state.
 
@@ -1060,7 +1060,7 @@ Get the speech state.
 {
     "jsonrpc": "2.0",
     "id": 1234567890,
-    "method": "TextToSpeech.1.getspeechstate",
+    "method": "TextToSpeech.1.getSpeechState",
     "params": {
         "sessionId": 1,
         "speechId": 1
@@ -1106,8 +1106,8 @@ TextToSpeech interface events:
 | [onPlaybackError](#event.onPlaybackError) | Notifies when playback error |
 | [onSpeechComplete](#event.onSpeechComplete) | Notifies when speech is completed |
 
-<a name="event.onttsstatechanged"></a>
-## *onttsstatechanged <sup>event</sup>*
+<a name="event.onTTSStateChanged"></a>
+## *onTTSStateChanged <sup>event</sup>*
 
 Notifies about TTS state status (Enabled or Disabled).
 
@@ -1123,14 +1123,14 @@ Notifies about TTS state status (Enabled or Disabled).
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "client.events.1.onttsstatechanged",
+    "method": "client.events.1.onTTSStateChanged",
     "params": {
         "state": true
     }
 }
 ```
-<a name="event.onttssessioncreated"></a>
-## *onttssessioncreated <sup>event</sup>*
+<a name="event.onTTSSessionCreated"></a>
+## *onTTSSessionCreated <sup>event</sup>*
 
 Notifies about TTS session is created or not.
 
@@ -1147,15 +1147,15 @@ Notifies about TTS session is created or not.
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "client.events.1.onttssessioncreated",
+    "method": "client.events.1.onTTSSessionCreated",
     "params": {
         "appId": 1,
         "sessionId": 1
     }
 }
 ```
-<a name="event.onvoicechanged"></a>
-## *onvoicechanged <sup>event</sup>*
+<a name="event.onVoiceChanged"></a>
+## *onVoiceChanged <sup>event</sup>*
 
 Notifies voice changed.
 
@@ -1171,14 +1171,14 @@ Notifies voice changed.
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "client.events.1.onvoicechanged",
+    "method": "client.events.1.onVoiceChanged",
     "params": {
         "voice": "carol"
     }
 }
 ```
-<a name="event.onresourceacquired"></a>
-## *onresourceacquired <sup>event</sup>*
+<a name="event.onResourceAcquired"></a>
+## *onResourceAcquired <sup>event</sup>*
 
 Notifies when TTS Resource is acquired.
 
@@ -1195,15 +1195,15 @@ Notifies when TTS Resource is acquired.
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "client.events.1.onresourceacquired",
+    "method": "client.events.1.onResourceAcquired",
     "params": {
         "appId": 1,
         "sessionId": 1
     }
 }
 ```
-<a name="event.onresourcereleased"></a>
-## *onresourcereleased <sup>event</sup>*
+<a name="event.onResourceReleased"></a>
+## *onResourceReleased <sup>event</sup>*
 
 Notifies when TTS Resource is released.
 
@@ -1220,15 +1220,15 @@ Notifies when TTS Resource is released.
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "client.events.1.onresourcereleased",
+    "method": "client.events.1.onResourceReleased",
     "params": {
         "appId": 1,
         "sessionId": 1
     }
 }
 ```
-<a name="event.onwillspeak"></a>
-## *onwillspeak <sup>event</sup>*
+<a name="event.onWillSpeak"></a>
+## *onWillSpeak <sup>event</sup>*
 
 Notifies when TTS Resource is acquired.
 
@@ -1247,7 +1247,7 @@ Notifies when TTS Resource is acquired.
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "client.events.1.onwillspeak",
+    "method": "client.events.1.onWillSpeak",
     "params": {
         "appId": 1,
         "sessionId": 1,
@@ -1256,8 +1256,8 @@ Notifies when TTS Resource is acquired.
     }
 }
 ```
-<a name="event.onspeechstart"></a>
-## *onspeechstart <sup>event</sup>*
+<a name="event.onSpeechStart"></a>
+## *onSpeechStart <sup>event</sup>*
 
 Notifies when speech is starts.
 
@@ -1276,7 +1276,7 @@ Notifies when speech is starts.
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "client.events.1.onspeechstart",
+    "method": "client.events.1.onSpeechStart",
     "params": {
         "appId": 1,
         "sessionId": 1,
@@ -1285,8 +1285,8 @@ Notifies when speech is starts.
     }
 }
 ```
-<a name="event.onspeechpause"></a>
-## *onspeechpause <sup>event</sup>*
+<a name="event.onSpeechPause"></a>
+## *onSpeechPause <sup>event</sup>*
 
 Notifies when speech pause occurred.
 
@@ -1304,7 +1304,7 @@ Notifies when speech pause occurred.
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "client.events.1.onspeechpause",
+    "method": "client.events.1.onSpeechPause",
     "params": {
         "appId": 1,
         "sessionId": 1,
@@ -1312,8 +1312,8 @@ Notifies when speech pause occurred.
     }
 }
 ```
-<a name="event.onspeechresume"></a>
-## *onspeechresume <sup>event</sup>*
+<a name="event.onSpeechResume"></a>
+## *onSpeechResume <sup>event</sup>*
 
 Notifies when speech Resume occurred.
 
@@ -1331,7 +1331,7 @@ Notifies when speech Resume occurred.
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "client.events.1.onspeechresume",
+    "method": "client.events.1.onSpeechResume",
     "params": {
         "appId": 1,
         "sessionId": 1,
@@ -1339,8 +1339,8 @@ Notifies when speech Resume occurred.
     }
 }
 ```
-<a name="event.onspeechinterrupt"></a>
-## *onspeechinterrupt <sup>event</sup>*
+<a name="event.onSpeechInterrupt"></a>
+## *onSpeechInterrupt <sup>event</sup>*
 
 Notifies when speech is interrupted.
 
@@ -1358,7 +1358,7 @@ Notifies when speech is interrupted.
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "client.events.1.onspeechinterrupt",
+    "method": "client.events.1.onSpeechInterrupt",
     "params": {
         "appId": 1,
         "sessionId": 1,
@@ -1366,8 +1366,8 @@ Notifies when speech is interrupted.
     }
 }
 ```
-<a name="event.onspeechcancel"></a>
-## *onspeechcancel <sup>event</sup>*
+<a name="event.onSpeechCancel"></a>
+## *onSpeechCancel <sup>event</sup>*
 
 Notifies when speech is cancelled.
 
@@ -1385,7 +1385,7 @@ Notifies when speech is cancelled.
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "client.events.1.onspeechcancel",
+    "method": "client.events.1.onSpeechCancel",
     "params": {
         "appId": 1,
         "sessionId": 1,
@@ -1393,8 +1393,8 @@ Notifies when speech is cancelled.
     }
 }
 ```
-<a name="event.onnetworkerror"></a>
-## *onnetworkerror <sup>event</sup>*
+<a name="event.onNetworkError"></a>
+## *onNetworkError <sup>event</sup>*
 
 Notifies when network error is occurred.
 
@@ -1412,7 +1412,7 @@ Notifies when network error is occurred.
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "client.events.1.onnetworkerror",
+    "method": "client.events.1.onNetworkError",
     "params": {
         "appId": 1,
         "sessionId": 1,
@@ -1420,8 +1420,8 @@ Notifies when network error is occurred.
     }
 }
 ```
-<a name="event.onplaybackerror"></a>
-## *onplaybackerror <sup>event</sup>*
+<a name="event.onPlaybackError"></a>
+## *onPlaybackError <sup>event</sup>*
 
 Notifies when playback error.
 
@@ -1439,7 +1439,7 @@ Notifies when playback error.
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "client.events.1.onplaybackerror",
+    "method": "client.events.1.onPlaybackError",
     "params": {
         "appId": 1,
         "sessionId": 1,
@@ -1447,8 +1447,8 @@ Notifies when playback error.
     }
 }
 ```
-<a name="event.onspeechcomplete"></a>
-## *onspeechcomplete <sup>event</sup>*
+<a name="event.onSpeechComplete"></a>
+## *onSpeechComplete <sup>event</sup>*
 
 Notifies when speech is completed.
 
@@ -1467,7 +1467,7 @@ Notifies when speech is completed.
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "client.events.1.onspeechcomplete",
+    "method": "client.events.1.onSpeechComplete",
     "params": {
         "appId": 1,
         "sessionId": 1,
