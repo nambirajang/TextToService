@@ -60,7 +60,7 @@ The table below provides and overview of terms and abbreviations used in this do
 <a name="head.Description"></a>
 # Description
 
-The TextToSpeech plugin provides functionality TTS for Voice Guidance and Speech Synthesis usecases.
+The TextToSpeech plugin provides TextToSpeech functionality for Voice Guidance and Speech Synthesis usecases.
 
 The plugin is designed to be loaded and executed within the Thunder framework. For more information about the framework refer to [[Thunder](#ref.Thunder)].
 
