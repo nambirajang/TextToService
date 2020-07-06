@@ -60,7 +60,7 @@ The table below provides and overview of terms and abbreviations used in this do
 <a name="head.Description"></a>
 # Description
 
-The TextToSpeech plugin provides functionality TTS for Voice Guidance and Speech Synthesis usecases.
+The TextToSpeech plugin provides TTS functionality (Voice Guidance & Speech Synthesis) for the client application.
 
 The plugin is designed to be loaded and executed within the Thunder framework. For more information about the framework refer to [[Thunder](#ref.Thunder)].
 
@@ -86,13 +86,9 @@ TextToSpeech interface methods:
 | Method | Description |
 | :-------- | :-------- |
 | [enabletts](#method.enabletts) | Enable TTS Engine |
-| [isTTSEnabled](#method.isTTSEnabled) | Check whether TTS is enabled or not |
+| [isTTSEnabled](#method.isTTSEnabled) | Check whether TTS Engine is enabled or not |
 | [speak](#method.speak) | Start Speech |
-| [abort](#method.abort) | Abort the speech |
-| [pause](#method.pause) | Pause the speech |
-| [resume](#method.resume) | Resume the speech |
-| [isSpeaking](#method.isSpeaking) | Check the session is speaking or not |
-| [getSpeechState](#method.getSpeechState) | Get the speech state |
+| [cancel](#method.cancel) | cancel the speech |
 
 <a name="method.enabletts"></a>
 ## *enabletts <sup>method</sup>*
@@ -143,7 +139,7 @@ Enable TTS Engine.
 <a name="method.isTTSEnabled"></a>
 ## *isTTSEnabled <sup>method</sup>*
 
-Check whether TTS is enabled or not.
+Check whether TTS Engine is enabled or not.
 
 ### Parameters
 
@@ -156,7 +152,7 @@ Check whether TTS is enabled or not.
 | Name | Type | Description |
 | :-------- | :-------- | :-------- |
 | result | object |  |
-| result?.isEnabled | boolean | <sup>*(optional)*</sup> Indicates TTSEngine is enabled or not |
+| result?.isEnabled | boolean | <sup>*(optional)*</sup> Indicates whether TTSEngine is enabled or not |
 | result?.TTS_Status | number | <sup>*(optional)*</sup> TTS Return status (must be one of the following: *TTS_OK*, *TTS_FAIL*, *TTS_NOT_ENABLED*, *TTS_CREATE_SESSION_DUPLICATE*, *TTS_EMPTY_APPID_INPUT*, *TTS_RESOURCE_BUSY*, *TTS_NO_SESSION_FOUND*, *TTS_NESTED_CLAIM_REQUEST*, *TTS_INVALID_CONFIGURATION*, *TTS_SESSION_NOT_ACTIVE*, *TTS_APP_NOT_FOUND*, *TTS_POLICY_VIOLATION*, *TTS_OBJECT_DESTROYED*, *TTS_SPEECH_NOT_FOUND*) |
 | result?.success | boolean | <sup>*(optional)*</sup> Call status |
 
@@ -231,18 +227,16 @@ Start Speech.
     }
 }
 ```
-<a name="method.abort"></a>
-## *abort <sup>method</sup>*
+<a name="method.cancel"></a>
+## *cancel <sup>method</sup>*
 
-Abort the speech.
+cancel the speech.
 
 ### Parameters
 
 | Name | Type | Description |
 | :-------- | :-------- | :-------- |
 | params | object |  |
-| params?.sessionId | number | <sup>*(optional)*</sup> Todo NAMBI |
-| params?.clearPending | boolean | <sup>*(optional)*</sup> clearPending |
 
 ### Result
 
@@ -260,11 +254,8 @@ Abort the speech.
 {
     "jsonrpc": "2.0",
     "id": 1234567890,
-    "method": "TextToSpeech.1.abort",
-    "params": {
-        "sessionId": 1,
-        "clearPending": true
-    }
+    "method": "TextToSpeech.1.cancel",
+    "params": {}
 }
 ```
 #### Response
@@ -274,200 +265,6 @@ Abort the speech.
     "jsonrpc": "2.0",
     "id": 1234567890,
     "result": {
-        "TTS_Status": 0,
-        "success": true
-    }
-}
-```
-<a name="method.pause"></a>
-## *pause <sup>method</sup>*
-
-Pause the speech.
-
-### Parameters
-
-| Name | Type | Description |
-| :-------- | :-------- | :-------- |
-| params | object |  |
-| params?.sessionId | number | <sup>*(optional)*</sup> Todo NAMBI |
-| params?.speechId | number | <sup>*(optional)*</sup> speechId |
-
-### Result
-
-| Name | Type | Description |
-| :-------- | :-------- | :-------- |
-| result | object |  |
-| result?.TTS_Status | number | <sup>*(optional)*</sup> TTS Return status (must be one of the following: *TTS_OK*, *TTS_FAIL*, *TTS_NOT_ENABLED*, *TTS_CREATE_SESSION_DUPLICATE*, *TTS_EMPTY_APPID_INPUT*, *TTS_RESOURCE_BUSY*, *TTS_NO_SESSION_FOUND*, *TTS_NESTED_CLAIM_REQUEST*, *TTS_INVALID_CONFIGURATION*, *TTS_SESSION_NOT_ACTIVE*, *TTS_APP_NOT_FOUND*, *TTS_POLICY_VIOLATION*, *TTS_OBJECT_DESTROYED*, *TTS_SPEECH_NOT_FOUND*) |
-| result?.success | boolean | <sup>*(optional)*</sup> Call status |
-
-### Example
-
-#### Request
-
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 1234567890,
-    "method": "TextToSpeech.1.pause",
-    "params": {
-        "sessionId": 1,
-        "speechId": 1
-    }
-}
-```
-#### Response
-
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 1234567890,
-    "result": {
-        "TTS_Status": 0,
-        "success": true
-    }
-}
-```
-<a name="method.resume"></a>
-## *resume <sup>method</sup>*
-
-Resume the speech.
-
-### Parameters
-
-| Name | Type | Description |
-| :-------- | :-------- | :-------- |
-| params | object |  |
-| params?.sessionId | number | <sup>*(optional)*</sup> Todo NAMBI |
-| params?.speechId | number | <sup>*(optional)*</sup> speechId |
-
-### Result
-
-| Name | Type | Description |
-| :-------- | :-------- | :-------- |
-| result | object |  |
-| result?.TTS_Status | number | <sup>*(optional)*</sup> TTS Return status (must be one of the following: *TTS_OK*, *TTS_FAIL*, *TTS_NOT_ENABLED*, *TTS_CREATE_SESSION_DUPLICATE*, *TTS_EMPTY_APPID_INPUT*, *TTS_RESOURCE_BUSY*, *TTS_NO_SESSION_FOUND*, *TTS_NESTED_CLAIM_REQUEST*, *TTS_INVALID_CONFIGURATION*, *TTS_SESSION_NOT_ACTIVE*, *TTS_APP_NOT_FOUND*, *TTS_POLICY_VIOLATION*, *TTS_OBJECT_DESTROYED*, *TTS_SPEECH_NOT_FOUND*) |
-| result?.success | boolean | <sup>*(optional)*</sup> Call status |
-
-### Example
-
-#### Request
-
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 1234567890,
-    "method": "TextToSpeech.1.resume",
-    "params": {
-        "sessionId": 1,
-        "speechId": 1
-    }
-}
-```
-#### Response
-
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 1234567890,
-    "result": {
-        "TTS_Status": 0,
-        "success": true
-    }
-}
-```
-<a name="method.isSpeaking"></a>
-## *isSpeaking <sup>method</sup>*
-
-Check the session is speaking or not.
-
-### Parameters
-
-| Name | Type | Description |
-| :-------- | :-------- | :-------- |
-| params | object |  |
-| params.sessionId | number | Todo NAMBI |
-
-### Result
-
-| Name | Type | Description |
-| :-------- | :-------- | :-------- |
-| result | object |  |
-| result?.speaking | boolean | <sup>*(optional)*</sup> Check speaking |
-| result?.TTS_Status | number | <sup>*(optional)*</sup> TTS Return status (must be one of the following: *TTS_OK*, *TTS_FAIL*, *TTS_NOT_ENABLED*, *TTS_CREATE_SESSION_DUPLICATE*, *TTS_EMPTY_APPID_INPUT*, *TTS_RESOURCE_BUSY*, *TTS_NO_SESSION_FOUND*, *TTS_NESTED_CLAIM_REQUEST*, *TTS_INVALID_CONFIGURATION*, *TTS_SESSION_NOT_ACTIVE*, *TTS_APP_NOT_FOUND*, *TTS_POLICY_VIOLATION*, *TTS_OBJECT_DESTROYED*, *TTS_SPEECH_NOT_FOUND*) |
-| result?.success | boolean | <sup>*(optional)*</sup> Call status |
-
-### Example
-
-#### Request
-
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 1234567890,
-    "method": "TextToSpeech.1.isSpeaking",
-    "params": {
-        "sessionId": 1
-    }
-}
-```
-#### Response
-
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 1234567890,
-    "result": {
-        "speaking": true,
-        "TTS_Status": 0,
-        "success": true
-    }
-}
-```
-<a name="method.getSpeechState"></a>
-## *getSpeechState <sup>method</sup>*
-
-Get the speech state.
-
-### Parameters
-
-| Name | Type | Description |
-| :-------- | :-------- | :-------- |
-| params | object |  |
-| params?.sessionId | number | <sup>*(optional)*</sup> Todo NAMBI |
-| params?.speechId | number | <sup>*(optional)*</sup> speechId |
-
-### Result
-
-| Name | Type | Description |
-| :-------- | :-------- | :-------- |
-| result | object |  |
-| result?.speechState | number | <sup>*(optional)*</sup> SpeechState (must be one of the following: *SPEECH_PENDING*, *SPEECH_IN_PROGRESS*, *SPEECH_PAUSED*, *SPEECH_NOT_FOUND*) |
-| result?.TTS_Status | number | <sup>*(optional)*</sup> TTS Return status (must be one of the following: *TTS_OK*, *TTS_FAIL*, *TTS_NOT_ENABLED*, *TTS_CREATE_SESSION_DUPLICATE*, *TTS_EMPTY_APPID_INPUT*, *TTS_RESOURCE_BUSY*, *TTS_NO_SESSION_FOUND*, *TTS_NESTED_CLAIM_REQUEST*, *TTS_INVALID_CONFIGURATION*, *TTS_SESSION_NOT_ACTIVE*, *TTS_APP_NOT_FOUND*, *TTS_POLICY_VIOLATION*, *TTS_OBJECT_DESTROYED*, *TTS_SPEECH_NOT_FOUND*) |
-| result?.success | boolean | <sup>*(optional)*</sup> Call status |
-
-### Example
-
-#### Request
-
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 1234567890,
-    "method": "TextToSpeech.1.getSpeechState",
-    "params": {
-        "sessionId": 1,
-        "speechId": 1
-    }
-}
-```
-#### Response
-
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 1234567890,
-    "result": {
-        "speechState": 0,
         "TTS_Status": 0,
         "success": true
     }
@@ -484,184 +281,22 @@ TextToSpeech interface events:
 
 | Event | Description |
 | :-------- | :-------- |
-| [onTTSStateChanged](#event.onTTSStateChanged) | Notifies about TTS state status (Enabled or Disabled) |
-| [onTTSSessionCreated](#event.onTTSSessionCreated) | Notifies about TTS session is created or not |
-| [onVoiceChanged](#event.onVoiceChanged) | Notifies voice changed |
-| [onResourceAcquired](#event.onResourceAcquired) | Notifies when TTS Resource is acquired |
-| [onResourceReleased](#event.onResourceReleased) | Notifies when TTS Resource is released |
-| [onWillSpeak](#event.onWillSpeak) | Notifies when TTS Resource is acquired |
-| [onSpeechStart](#event.onSpeechStart) | Notifies when speech is starts |
-| [onSpeechPause](#event.onSpeechPause) | Notifies when speech pause occurred |
-| [onSpeechResume](#event.onSpeechResume) | Notifies when speech Resume occurred |
-| [onSpeechInterrupt](#event.onSpeechInterrupt) | Notifies when speech is interrupted |
+| [onSpeechStart](#event.onSpeechStart) | Notifies when speech starts |
 | [onSpeechCancel](#event.onSpeechCancel) | Notifies when speech is cancelled |
 | [onNetworkError](#event.onNetworkError) | Notifies when network error is occurred |
 | [onPlaybackError](#event.onPlaybackError) | Notifies when playback error |
 | [onSpeechComplete](#event.onSpeechComplete) | Notifies when speech is completed |
 
-<a name="event.onTTSStateChanged"></a>
-## *onTTSStateChanged <sup>event</sup>*
-
-Notifies about TTS state status (Enabled or Disabled).
-
-### Parameters
-
-| Name | Type | Description |
-| :-------- | :-------- | :-------- |
-| params | object |  |
-| params.state | boolean | TTS Engine State |
-
-### Example
-
-```json
-{
-    "jsonrpc": "2.0",
-    "method": "client.events.1.onTTSStateChanged",
-    "params": {
-        "state": true
-    }
-}
-```
-<a name="event.onTTSSessionCreated"></a>
-## *onTTSSessionCreated <sup>event</sup>*
-
-Notifies about TTS session is created or not.
-
-### Parameters
-
-| Name | Type | Description |
-| :-------- | :-------- | :-------- |
-| params | object |  |
-| params.appId | number | AppId |
-| params.sessionId | number | Session Id |
-
-### Example
-
-```json
-{
-    "jsonrpc": "2.0",
-    "method": "client.events.1.onTTSSessionCreated",
-    "params": {
-        "appId": 1,
-        "sessionId": 1
-    }
-}
-```
-<a name="event.onVoiceChanged"></a>
-## *onVoiceChanged <sup>event</sup>*
-
-Notifies voice changed.
-
-### Parameters
-
-| Name | Type | Description |
-| :-------- | :-------- | :-------- |
-| params | object |  |
-| params.voice | string | Voice details |
-
-### Example
-
-```json
-{
-    "jsonrpc": "2.0",
-    "method": "client.events.1.onVoiceChanged",
-    "params": {
-        "voice": "carol"
-    }
-}
-```
-<a name="event.onResourceAcquired"></a>
-## *onResourceAcquired <sup>event</sup>*
-
-Notifies when TTS Resource is acquired.
-
-### Parameters
-
-| Name | Type | Description |
-| :-------- | :-------- | :-------- |
-| params | object |  |
-| params.appId | number | AppId |
-| params.sessionId | number | Session Id |
-
-### Example
-
-```json
-{
-    "jsonrpc": "2.0",
-    "method": "client.events.1.onResourceAcquired",
-    "params": {
-        "appId": 1,
-        "sessionId": 1
-    }
-}
-```
-<a name="event.onResourceReleased"></a>
-## *onResourceReleased <sup>event</sup>*
-
-Notifies when TTS Resource is released.
-
-### Parameters
-
-| Name | Type | Description |
-| :-------- | :-------- | :-------- |
-| params | object |  |
-| params.appId | number | AppId |
-| params.sessionId | number | Session Id |
-
-### Example
-
-```json
-{
-    "jsonrpc": "2.0",
-    "method": "client.events.1.onResourceReleased",
-    "params": {
-        "appId": 1,
-        "sessionId": 1
-    }
-}
-```
-<a name="event.onWillSpeak"></a>
-## *onWillSpeak <sup>event</sup>*
-
-Notifies when TTS Resource is acquired.
-
-### Parameters
-
-| Name | Type | Description |
-| :-------- | :-------- | :-------- |
-| params | object |  |
-| params.appId | number | AppId |
-| params.sessionId | number | Session Id |
-| params.speechId | number | speechId |
-| params.text | string | Text |
-
-### Example
-
-```json
-{
-    "jsonrpc": "2.0",
-    "method": "client.events.1.onWillSpeak",
-    "params": {
-        "appId": 1,
-        "sessionId": 1,
-        "speechId": 1,
-        "text": "speech_1"
-    }
-}
-```
 <a name="event.onSpeechStart"></a>
 ## *onSpeechStart <sup>event</sup>*
 
-Notifies when speech is starts.
+Notifies when speech starts.
 
 ### Parameters
 
 | Name | Type | Description |
 | :-------- | :-------- | :-------- |
 | params | object |  |
-| params.appId | number | AppId |
-| params.sessionId | number | Session Id |
-| params.speechId | number | speechId |
 | params.text | string | Text |
 
 ### Example
@@ -671,91 +306,7 @@ Notifies when speech is starts.
     "jsonrpc": "2.0",
     "method": "client.events.1.onSpeechStart",
     "params": {
-        "appId": 1,
-        "sessionId": 1,
-        "speechId": 1,
         "text": "speech_1"
-    }
-}
-```
-<a name="event.onSpeechPause"></a>
-## *onSpeechPause <sup>event</sup>*
-
-Notifies when speech pause occurred.
-
-### Parameters
-
-| Name | Type | Description |
-| :-------- | :-------- | :-------- |
-| params | object |  |
-| params.appId | number | AppId |
-| params.sessionId | number | Session Id |
-| params.speechId | number | Speech Id |
-
-### Example
-
-```json
-{
-    "jsonrpc": "2.0",
-    "method": "client.events.1.onSpeechPause",
-    "params": {
-        "appId": 1,
-        "sessionId": 1,
-        "speechId": 1
-    }
-}
-```
-<a name="event.onSpeechResume"></a>
-## *onSpeechResume <sup>event</sup>*
-
-Notifies when speech Resume occurred.
-
-### Parameters
-
-| Name | Type | Description |
-| :-------- | :-------- | :-------- |
-| params | object |  |
-| params.appId | number | AppId |
-| params.sessionId | number | Session Id |
-| params.speechId | number | Speech Id |
-
-### Example
-
-```json
-{
-    "jsonrpc": "2.0",
-    "method": "client.events.1.onSpeechResume",
-    "params": {
-        "appId": 1,
-        "sessionId": 1,
-        "speechId": 1
-    }
-}
-```
-<a name="event.onSpeechInterrupt"></a>
-## *onSpeechInterrupt <sup>event</sup>*
-
-Notifies when speech is interrupted.
-
-### Parameters
-
-| Name | Type | Description |
-| :-------- | :-------- | :-------- |
-| params | object |  |
-| params.appId | number | AppId |
-| params.sessionId | number | Session Id |
-| params.speechId | number | Speech Id |
-
-### Example
-
-```json
-{
-    "jsonrpc": "2.0",
-    "method": "client.events.1.onSpeechInterrupt",
-    "params": {
-        "appId": 1,
-        "sessionId": 1,
-        "speechId": 1
     }
 }
 ```
@@ -769,9 +320,6 @@ Notifies when speech is cancelled.
 | Name | Type | Description |
 | :-------- | :-------- | :-------- |
 | params | object |  |
-| params.appId | number | AppId |
-| params.sessionId | number | Session Id |
-| params.speechId | number | Speech Id |
 
 ### Example
 
@@ -779,11 +327,7 @@ Notifies when speech is cancelled.
 {
     "jsonrpc": "2.0",
     "method": "client.events.1.onSpeechCancel",
-    "params": {
-        "appId": 1,
-        "sessionId": 1,
-        "speechId": 1
-    }
+    "params": {}
 }
 ```
 <a name="event.onNetworkError"></a>
@@ -796,9 +340,6 @@ Notifies when network error is occurred.
 | Name | Type | Description |
 | :-------- | :-------- | :-------- |
 | params | object |  |
-| params.appId | number | AppId |
-| params.sessionId | number | Session Id |
-| params.speechId | number | Speech Id |
 
 ### Example
 
@@ -806,11 +347,7 @@ Notifies when network error is occurred.
 {
     "jsonrpc": "2.0",
     "method": "client.events.1.onNetworkError",
-    "params": {
-        "appId": 1,
-        "sessionId": 1,
-        "speechId": 1
-    }
+    "params": {}
 }
 ```
 <a name="event.onPlaybackError"></a>
@@ -823,9 +360,6 @@ Notifies when playback error.
 | Name | Type | Description |
 | :-------- | :-------- | :-------- |
 | params | object |  |
-| params.appId | number | AppId |
-| params.sessionId | number | Session Id |
-| params.speechId | number | Speech Id |
 
 ### Example
 
@@ -833,11 +367,7 @@ Notifies when playback error.
 {
     "jsonrpc": "2.0",
     "method": "client.events.1.onPlaybackError",
-    "params": {
-        "appId": 1,
-        "sessionId": 1,
-        "speechId": 1
-    }
+    "params": {}
 }
 ```
 <a name="event.onSpeechComplete"></a>
@@ -850,9 +380,6 @@ Notifies when speech is completed.
 | Name | Type | Description |
 | :-------- | :-------- | :-------- |
 | params | object |  |
-| params.appId | number | AppId |
-| params.sessionId | number | Session Id |
-| params.speechId | number | Speech Id |
 | params.text | string | Text |
 
 ### Example
@@ -862,9 +389,6 @@ Notifies when speech is completed.
     "jsonrpc": "2.0",
     "method": "client.events.1.onSpeechComplete",
     "params": {
-        "appId": 1,
-        "sessionId": 1,
-        "speechId": 1,
         "text": "speech_1"
     }
 }
