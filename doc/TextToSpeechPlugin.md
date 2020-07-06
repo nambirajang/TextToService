@@ -85,59 +85,12 @@ TextToSpeech interface methods:
 
 | Method | Description |
 | :-------- | :-------- |
-| [enabletts](#method.enabletts) | Enable TTS Engine |
-| [isTTSEnabled](#method.isTTSEnabled) | Check whether TTS Engine is enabled or not |
+| [isttsenabled](#method.isttsenabled) | Check whether TTS Engine is enabled or not |
 | [speak](#method.speak) | Start Speech |
 | [cancel](#method.cancel) | cancel the speech |
 
-<a name="method.enabletts"></a>
-## *enabletts <sup>method</sup>*
-
-Enable TTS Engine.
-
-### Parameters
-
-| Name | Type | Description |
-| :-------- | :-------- | :-------- |
-| params | object |  |
-| params.enabletts | boolean | TTS Engine is enabled with the enabletts flag |
-
-### Result
-
-| Name | Type | Description |
-| :-------- | :-------- | :-------- |
-| result | object |  |
-| result?.TTS_Status | number | <sup>*(optional)*</sup> TTS Return status (must be one of the following: *TTS_OK*, *TTS_FAIL*, *TTS_NOT_ENABLED*, *TTS_CREATE_SESSION_DUPLICATE*, *TTS_EMPTY_APPID_INPUT*, *TTS_RESOURCE_BUSY*, *TTS_NO_SESSION_FOUND*, *TTS_NESTED_CLAIM_REQUEST*, *TTS_INVALID_CONFIGURATION*, *TTS_SESSION_NOT_ACTIVE*, *TTS_APP_NOT_FOUND*, *TTS_POLICY_VIOLATION*, *TTS_OBJECT_DESTROYED*, *TTS_SPEECH_NOT_FOUND*) |
-| result?.success | boolean | <sup>*(optional)*</sup> Call status |
-
-### Example
-
-#### Request
-
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 1234567890,
-    "method": "TextToSpeech.1.enabletts",
-    "params": {
-        "enabletts": true
-    }
-}
-```
-#### Response
-
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 1234567890,
-    "result": {
-        "TTS_Status": 0,
-        "success": true
-    }
-}
-```
-<a name="method.isTTSEnabled"></a>
-## *isTTSEnabled <sup>method</sup>*
+<a name="method.isttsenabled"></a>
+## *isttsenabled <sup>method</sup>*
 
 Check whether TTS Engine is enabled or not.
 
@@ -152,7 +105,7 @@ Check whether TTS Engine is enabled or not.
 | Name | Type | Description |
 | :-------- | :-------- | :-------- |
 | result | object |  |
-| result?.isEnabled | boolean | <sup>*(optional)*</sup> Indicates whether TTSEngine is enabled or not |
+| result?.isenabled | boolean | <sup>*(optional)*</sup> Indicates whether TTSEngine is enabled or not |
 | result?.TTS_Status | number | <sup>*(optional)*</sup> TTS Return status (must be one of the following: *TTS_OK*, *TTS_FAIL*, *TTS_NOT_ENABLED*, *TTS_CREATE_SESSION_DUPLICATE*, *TTS_EMPTY_APPID_INPUT*, *TTS_RESOURCE_BUSY*, *TTS_NO_SESSION_FOUND*, *TTS_NESTED_CLAIM_REQUEST*, *TTS_INVALID_CONFIGURATION*, *TTS_SESSION_NOT_ACTIVE*, *TTS_APP_NOT_FOUND*, *TTS_POLICY_VIOLATION*, *TTS_OBJECT_DESTROYED*, *TTS_SPEECH_NOT_FOUND*) |
 | result?.success | boolean | <sup>*(optional)*</sup> Call status |
 
@@ -164,7 +117,7 @@ Check whether TTS Engine is enabled or not.
 {
     "jsonrpc": "2.0",
     "id": 1234567890,
-    "method": "TextToSpeech.1.isTTSEnabled",
+    "method": "TextToSpeech.1.isttsenabled",
     "params": {}
 }
 ```
@@ -175,7 +128,7 @@ Check whether TTS Engine is enabled or not.
     "jsonrpc": "2.0",
     "id": 1234567890,
     "result": {
-        "isEnabled": true,
+        "isenabled": true,
         "TTS_Status": 0,
         "success": true
     }
@@ -281,14 +234,14 @@ TextToSpeech interface events:
 
 | Event | Description |
 | :-------- | :-------- |
-| [onSpeechStart](#event.onSpeechStart) | Notifies when speech starts |
-| [onSpeechCancel](#event.onSpeechCancel) | Notifies when speech is cancelled |
-| [onNetworkError](#event.onNetworkError) | Notifies when network error is occurred |
-| [onPlaybackError](#event.onPlaybackError) | Notifies when playback error |
-| [onSpeechComplete](#event.onSpeechComplete) | Notifies when speech is completed |
+| [onspeechstart](#event.onspeechstart) | Notifies when speech starts |
+| [onspeechcancel](#event.onspeechcancel) | Notifies when speech is cancelled |
+| [onnetworkerror](#event.onnetworkerror) | Notifies when network error is occurred |
+| [onplaybackerror](#event.onplaybackerror) | Notifies when playback error |
+| [onspeechcomplete](#event.onspeechcomplete) | Notifies when speech is completed |
 
-<a name="event.onSpeechStart"></a>
-## *onSpeechStart <sup>event</sup>*
+<a name="event.onspeechstart"></a>
+## *onspeechstart <sup>event</sup>*
 
 Notifies when speech starts.
 
@@ -304,14 +257,14 @@ Notifies when speech starts.
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "client.events.1.onSpeechStart",
+    "method": "client.events.1.onspeechstart",
     "params": {
         "text": "speech_1"
     }
 }
 ```
-<a name="event.onSpeechCancel"></a>
-## *onSpeechCancel <sup>event</sup>*
+<a name="event.onspeechcancel"></a>
+## *onspeechcancel <sup>event</sup>*
 
 Notifies when speech is cancelled.
 
@@ -326,12 +279,12 @@ Notifies when speech is cancelled.
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "client.events.1.onSpeechCancel",
+    "method": "client.events.1.onspeechcancel",
     "params": {}
 }
 ```
-<a name="event.onNetworkError"></a>
-## *onNetworkError <sup>event</sup>*
+<a name="event.onnetworkerror"></a>
+## *onnetworkerror <sup>event</sup>*
 
 Notifies when network error is occurred.
 
@@ -346,12 +299,12 @@ Notifies when network error is occurred.
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "client.events.1.onNetworkError",
+    "method": "client.events.1.onnetworkerror",
     "params": {}
 }
 ```
-<a name="event.onPlaybackError"></a>
-## *onPlaybackError <sup>event</sup>*
+<a name="event.onplaybackerror"></a>
+## *onplaybackerror <sup>event</sup>*
 
 Notifies when playback error.
 
@@ -366,12 +319,12 @@ Notifies when playback error.
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "client.events.1.onPlaybackError",
+    "method": "client.events.1.onplaybackerror",
     "params": {}
 }
 ```
-<a name="event.onSpeechComplete"></a>
-## *onSpeechComplete <sup>event</sup>*
+<a name="event.onspeechcomplete"></a>
+## *onspeechcomplete <sup>event</sup>*
 
 Notifies when speech is completed.
 
@@ -387,7 +340,7 @@ Notifies when speech is completed.
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "client.events.1.onSpeechComplete",
+    "method": "client.events.1.onspeechcomplete",
     "params": {
         "text": "speech_1"
     }
