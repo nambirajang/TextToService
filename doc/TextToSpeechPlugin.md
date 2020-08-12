@@ -106,7 +106,7 @@ Check whether TTS Engine is enabled or not.
 | :-------- | :-------- | :-------- |
 | result | object |  |
 | result?.isenabled | boolean | <sup>*(optional)*</sup> Indicates whether TTSEngine is enabled or not |
-| result?.TTS_Status | number | <sup>*(optional)*</sup> TTS Return status (must be one of the following: *TTS_OK*, *TTS_FAIL*, *TTS_NOT_ENABLED*, *TTS_CREATE_SESSION_DUPLICATE*, *TTS_EMPTY_APPID_INPUT*, *TTS_RESOURCE_BUSY*, *TTS_NO_SESSION_FOUND*, *TTS_NESTED_CLAIM_REQUEST*, *TTS_INVALID_CONFIGURATION*, *TTS_SESSION_NOT_ACTIVE*, *TTS_APP_NOT_FOUND*, *TTS_POLICY_VIOLATION*, *TTS_OBJECT_DESTROYED*, *TTS_SPEECH_NOT_FOUND*) |
+| result?.TTS_Status | number | <sup>*(optional)*</sup> TTS Return status (must be one of the following: *TTS_OK*, *TTS_FAIL*, *TTS_NOT_ENABLED*, *TTS_INVALID_CONFIGURATION*) |
 | result?.success | boolean | <sup>*(optional)*</sup> Call status |
 
 ### Example
@@ -152,7 +152,7 @@ Start Speech.
 | :-------- | :-------- | :-------- |
 | result | object |  |
 | result?.speechid | number | <sup>*(optional)*</sup> Indicates the speechid created by TTSEngine |
-| result?.TTS_Status | number | <sup>*(optional)*</sup> TTS Return status (must be one of the following: *TTS_OK*, *TTS_FAIL*, *TTS_NOT_ENABLED*, *TTS_CREATE_SESSION_DUPLICATE*, *TTS_EMPTY_APPID_INPUT*, *TTS_RESOURCE_BUSY*, *TTS_NO_SESSION_FOUND*, *TTS_NESTED_CLAIM_REQUEST*, *TTS_INVALID_CONFIGURATION*, *TTS_SESSION_NOT_ACTIVE*, *TTS_APP_NOT_FOUND*, *TTS_POLICY_VIOLATION*, *TTS_OBJECT_DESTROYED*, *TTS_SPEECH_NOT_FOUND*) |
+| result?.TTS_Status | number | <sup>*(optional)*</sup> TTS Return status (must be one of the following: *TTS_OK*, *TTS_FAIL*, *TTS_NOT_ENABLED*, *TTS_INVALID_CONFIGURATION*) |
 | result?.success | boolean | <sup>*(optional)*</sup> Call status |
 
 ### Example
@@ -199,7 +199,7 @@ cancel the speech.
 | Name | Type | Description |
 | :-------- | :-------- | :-------- |
 | result | object |  |
-| result?.TTS_Status | number | <sup>*(optional)*</sup> TTS Return status (must be one of the following: *TTS_OK*, *TTS_FAIL*, *TTS_NOT_ENABLED*, *TTS_CREATE_SESSION_DUPLICATE*, *TTS_EMPTY_APPID_INPUT*, *TTS_RESOURCE_BUSY*, *TTS_NO_SESSION_FOUND*, *TTS_NESTED_CLAIM_REQUEST*, *TTS_INVALID_CONFIGURATION*, *TTS_SESSION_NOT_ACTIVE*, *TTS_APP_NOT_FOUND*, *TTS_POLICY_VIOLATION*, *TTS_OBJECT_DESTROYED*, *TTS_SPEECH_NOT_FOUND*) |
+| result?.TTS_Status | number | <sup>*(optional)*</sup> TTS Return status (must be one of the following: *TTS_OK*, *TTS_FAIL*, *TTS_NOT_ENABLED*, *TTS_INVALID_CONFIGURATION*) |
 | result?.success | boolean | <sup>*(optional)*</sup> Call status |
 
 ### Example
@@ -240,7 +240,6 @@ TextToSpeech interface events:
 | Event | Description |
 | :-------- | :-------- |
 | [onspeechstart](#event.onspeechstart) | Notifies when speech starts |
-| [onSpeechComplete](#event.onSpeechComplete) | Notifies when speech completes |
 | [onspeechcancel](#event.onspeechcancel) | Notifies when speech is cancelled |
 | [onnetworkerror](#event.onnetworkerror) | Notifies when network error is occurred |
 | [onplaybackerror](#event.onplaybackerror) | Notifies when playback error |
@@ -265,31 +264,6 @@ Notifies when speech starts.
 {
     "jsonrpc": "2.0",
     "method": "client.events.1.onspeechstart",
-    "params": {
-        "speechid": 1,
-        "text": "speech_1"
-    }
-}
-```
-<a name="event.onSpeechComplete"></a>
-## *onSpeechComplete <sup>event</sup>*
-
-Notifies when speech completes.
-
-### Parameters
-
-| Name | Type | Description |
-| :-------- | :-------- | :-------- |
-| params | object |  |
-| params.speechid | number | Speech Id |
-| params.text | string | Text |
-
-### Example
-
-```json
-{
-    "jsonrpc": "2.0",
-    "method": "client.events.1.onSpeechComplete",
     "params": {
         "speechid": 1,
         "text": "speech_1"
