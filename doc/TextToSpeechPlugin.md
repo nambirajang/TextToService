@@ -88,11 +88,11 @@ TextToSpeech interface methods:
 | [isttsenabled](#method.isttsenabled) | Check whether TTS Engine is enabled or not |
 | [speak](#method.speak) | Start Speech |
 | [cancel](#method.cancel) | cancel the speech |
-| [enabletts](#method.enabletts) | (Resident app method) Enables the TTS Engine for Thunder service |
-| [listvoices](#method.listvoices) | (Resident app method) This will list the available voices for the mentioned language |
-| [setttsconfiguration](#method.setttsconfiguration) | (Resident app method) Set the TTS configuration |
-| [getttsconfiguration](#method.getttsconfiguration) | (Resident app method) This will get the current TTS Engine configuration |
-| [getapiversion](#method.getapiversion) | (Resident app method) To get the apiversion |
+| [enabletts](#method.enabletts) | (For Resident App) Enables the TTS Engine for Thunder service |
+| [listvoices](#method.listvoices) | (For Resident App) This will list the available voices for the mentioned language |
+| [setttsconfiguration](#method.setttsconfiguration) | (For Resident App) Set the TTS configuration |
+| [getttsconfiguration](#method.getttsconfiguration) | (For Resident App) This will get the current TTS Engine configuration |
+| [getapiversion](#method.getapiversion) | (For Resident App) To get the apiversion |
 
 <a name="method.isttsenabled"></a>
 ## *isttsenabled <sup>method</sup>*
@@ -236,7 +236,7 @@ cancel the speech.
 <a name="method.enabletts"></a>
 ## *enabletts <sup>method</sup>*
 
-(Resident app method) Enables the TTS Engine for Thunder service.
+(For Resident App) Enables the TTS Engine for Thunder service.
 
 ### Parameters
 
@@ -282,7 +282,7 @@ cancel the speech.
 <a name="method.listvoices"></a>
 ## *listvoices <sup>method</sup>*
 
-(Resident app method) This will list the available voices for the mentioned language.
+(For Resident App) This will list the available voices for the mentioned language.
 
 ### Parameters
 
@@ -330,7 +330,7 @@ cancel the speech.
 <a name="method.setttsconfiguration"></a>
 ## *setttsconfiguration <sup>method</sup>*
 
-(Resident app method) Set the TTS configuration.
+(For Resident App) Set the TTS configuration.
 
 ### Parameters
 
@@ -386,7 +386,7 @@ cancel the speech.
 <a name="method.getttsconfiguration"></a>
 ## *getttsconfiguration <sup>method</sup>*
 
-(Resident app method) This will get the current TTS Engine configuration.
+(For Resident App) This will get the current TTS Engine configuration.
 
 ### Parameters
 
@@ -441,7 +441,7 @@ cancel the speech.
 <a name="method.getapiversion"></a>
 ## *getapiversion <sup>method</sup>*
 
-(Resident app method) To get the apiversion.
+(For Resident App) To get the apiversion.
 
 ### Parameters
 
@@ -499,7 +499,7 @@ TextToSpeech interface events:
 | [onnetworkerror](#event.onnetworkerror) | Notifies when network error is occurred |
 | [onplaybackerror](#event.onplaybackerror) | Notifies when playback error |
 | [onspeechcomplete](#event.onspeechcomplete) | Notifies when speech is completed |
-| [onvoicechanged](#event.onvoicechanged) | (Resident app event) Notifies when voice is changed |
+| [onvoicechanged](#event.onvoicechanged) | (For Resident App) Notifies when voice is changed |
 
 <a name="event.onspeechstart"></a>
 ## *onspeechstart <sup>event</sup>*
@@ -623,7 +623,7 @@ Notifies when speech is completed.
 <a name="event.onvoicechanged"></a>
 ## *onvoicechanged <sup>event</sup>*
 
-(Resident app event) Notifies when voice is changed.
+(For Resident App) Notifies when voice is changed.
 
 ### Parameters
 
